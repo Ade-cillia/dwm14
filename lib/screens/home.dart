@@ -8,12 +8,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedPage = 0;
   int nb = 0;
   Color color = Colors.blue;
   bool disable = false;
-
-  List<Widget> list = [Landing(), Container(), Text('School')];
+  String _selectedItemText = '';
+  List list = [
+    "Flutter",
+    "React",
+    "Ionic",
+    "Xamarin",
+  ];
+  //List<Widget> list = [Landing(), Container(), Text('School')];
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +29,15 @@ class _HomeScreenState extends State<HomeScreen> {
       drawerEnableOpenDragGesture: !disable,
       drawer: DrawerMenu(),
       body: SafeArea(
-        child: list[_selectedPage],
+        child: Column(
+          children: [
+            Container(
+              width: 500,
+              height: 300,
+              child: Landing(),
+            ),
+          ],
+        ),
       ),
     );
   }

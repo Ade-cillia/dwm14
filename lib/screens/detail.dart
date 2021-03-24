@@ -64,21 +64,25 @@ class DetailScreen extends StatelessWidget {
                                   for (var i = 0;
                                       i < infoMovie[0].ratings.length;
                                       i++)
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 100,
-                                          height: 100,
-                                          decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                  image: NetworkImage(
-                                                      infoMovie[0].ratings[i]
-                                                          ['logo']))),
-                                        ),
-                                        Text(infoMovie[0].ratings[i]['source']),
-                                        Text("note: " +
-                                            infoMovie[0].ratings[i]['value']),
-                                      ],
+                                    Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            width: 100,
+                                            height: 100,
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                        infoMovie[0].ratings[i]
+                                                            ['logo']))),
+                                          ),
+                                          Text(infoMovie[0].ratings[i]
+                                              ['source']),
+                                          Text("note: " +
+                                              infoMovie[0].ratings[i]['value']),
+                                        ],
+                                      ),
                                     ),
                                 ]))
                           ],
