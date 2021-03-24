@@ -1,7 +1,6 @@
 import 'package:dwm14/constants/firebase.dart';
 import 'package:dwm14/models/movie.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
 
 class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -59,19 +58,29 @@ class DetailScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                             ),
                             SizedBox(height: 50),
-                            Column(
-                              children: [
-                                Container(
-                                  width: 100,
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: NetworkImage(infoMovie[0]
-                                              .ratings[0]['logo']))),
-                                ),
-                                Text(infoMovie[0].ratings[0]['source']),
-                              ],
-                            ),
+                            SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(children: <Widget>[
+                                  for (var i = 0;
+                                      i < infoMovie[0].ratings.length;
+                                      i++)
+                                    Column(
+                                      children: [
+                                        Container(
+                                          width: 100,
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                  image: NetworkImage(
+                                                      infoMovie[0].ratings[i]
+                                                          ['logo']))),
+                                        ),
+                                        Text(infoMovie[0].ratings[i]['source']),
+                                        Text("note: " +
+                                            infoMovie[0].ratings[i]['value']),
+                                      ],
+                                    ),
+                                ]))
                           ],
                         ),
                       ),
