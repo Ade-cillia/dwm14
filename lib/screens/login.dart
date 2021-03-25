@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           try {
                             await firebaseAuth.signInWithEmailAndPassword(
                                 email: email, password: password);
-                            print('Login éffectuer');
+                            print('Login effectuer');
                             Navigator.pushReplacementNamed(context, '/home');
                           } on FirebaseAuthException catch (error) {
                             if (error.code == 'user-not-found') {
