@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dwm14/models/movie.dart';
+import 'package:dwm14/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 final firebaseAuth = FirebaseAuth.instance;
@@ -32,9 +33,14 @@ getMoviesByTitle(title) async {
 }
 
 getUserInfo(email) async {
+  List result = [];
   final userInfo = await firestore
       .collection('users')
       .where('email', isEqualTo: email)
       .get();
-  return userInfo;
+  if (userInfo.docs != null) {
+    result =
+        userInfo.docs.map((doc) => UserProfile().fromJson(doc.data())).toList();
+  }
+  return result;
 }

@@ -7,8 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 User user = FirebaseAuth.instance.currentUser;
 
-var test = getUserInfo(user.email);
-
 class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -17,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
           if (snapshot.hasError) {
             return ErrorScreen();
           }
-
+          List userData = snapshot.data;
           if (snapshot.connectionState == ConnectionState.done) {
             return Scaffold(
                 appBar: AppBar(
@@ -27,7 +25,16 @@ class ProfileScreen extends StatelessWidget {
                 drawer: DrawerMenu(),
                 body: SafeArea(
                     child: Container(
-                  child: Text(test.name),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        Text("email: " + userData[0].email),
+                        Text("Nom: " + userData[0].name),
+                        Text("Prénom: " + userData[0].firstname),
+                        Text("Ville: " + userData[0].city),
+                      ],
+                    ),
+                  ),
                 )));
           }
 
