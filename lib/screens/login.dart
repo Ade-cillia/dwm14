@@ -22,7 +22,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
       body: SafeArea(
-        child: Center(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(32, 12, 32, 12),
           child: Column(
             children: [
               Form(
@@ -75,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           try {
                             await firebaseAuth.signInWithEmailAndPassword(
                                 email: email, password: password);
-                            print('Login effectuer');
+                            print('Connexion effectuée');
                             Navigator.pushReplacementNamed(context, '/home');
                           } on FirebaseAuthException catch (error) {
                             if (error.code == 'user-not-found') {
@@ -106,12 +107,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.pushNamed(context, '/register');
                 },
                 child: Container(
-                  child: Column(
+                  child: Row(
                     children: [
                       Text(
-                        'Pas de compte ? s\'enregistrer',
+                        'Pas de compte ? ',
                         style: TextStyle(
-                          color: Colors.red,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        's\'enregistrer',
+                        style: TextStyle(
+                          color: Colors.green,
                         ),
                       ),
                     ],

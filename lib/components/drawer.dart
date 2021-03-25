@@ -15,13 +15,13 @@ class DrawerMenu extends StatelessWidget {
             },
           ),
           ListTile(
-            title: Text('Profile'),
+            title: Text('Profil'),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/profile');
             },
           ),
           ListTile(
-            title: Text('Sign Out',
+            title: Text('Déconnexion',
                 style:
                     TextStyle(color: Colors.red, fontWeight: FontWeight.bold)),
             onTap: () async {

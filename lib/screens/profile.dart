@@ -25,17 +25,82 @@ class ProfileScreen extends StatelessWidget {
                 drawer: DrawerMenu(),
                 body: SafeArea(
                     child: Container(
-                  child: Center(
-                    child: Column(
-                      children: [
-                        Text("email: " + userData[0].email),
-                        Text("Nom: " + userData[0].name),
-                        Text("Prénom: " + userData[0].firstname),
-                        Text("Ville: " + userData[0].city),
-                      ],
-                    ),
+                        child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16),
+                              child: Text(
+                                'Informations du profil',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              ))
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0),
+                            child: Icon(Icons.email),
+                          ),
+                          Text(userData[0].email),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0),
+                            child: Icon(Icons.portrait),
+                          ),
+                          Text(userData[0].name),
+                          Text(' ' + userData[0].firstname),
+                          SizedBox(height: 35),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0),
+                            child: Icon(Icons.house),
+                          ),
+                          Text("Habite à : " + userData[0].city),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                              padding: EdgeInsets.fromLTRB(0.0, 32, 0.0, 16),
+                              child: Text(
+                                'Actions',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 24),
+                              ))
+                        ],
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          await firebaseAuth.signOut();
+                          Navigator.pushReplacementNamed(context, '/login');
+                        },
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0.0, 0.0, 5.0, 0),
+                              child: Icon(Icons.backspace, color: Colors.red),
+                            ),
+                            Text('Déconnexion',
+                                style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold)),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                )));
+                ))));
           }
 
           return LoadingScreen();
