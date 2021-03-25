@@ -28,7 +28,15 @@ class App extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: ThemeData(
-                primarySwatch: Colors.deepPurple,
+                accentColor: Colors.pink,
+                brightness: Brightness.light,
+                primaryColor: Colors.deepPurple,
+              ),
+              darkTheme: ThemeData(
+                accentColor: Colors.blue,
+                brightness: Brightness.dark,
+                primaryColor: Colors.teal,
+                scaffoldBackgroundColor: const Color(0xFF1F1E23),
               ),
               routes: routes,
               initialRoute: isLogged() != null ? '/home' : '/login',
