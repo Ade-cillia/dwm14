@@ -1,4 +1,5 @@
 import 'package:dwm14/constants/firebase.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -33,6 +34,14 @@ class DrawerMenu extends StatelessWidget {
             onTap: () async {
               await firebaseAuth.signOut();
               Navigator.pushReplacementNamed(context, '/login');
+            },
+          ),
+          ListTile(
+            title: Text('Toggle Theme',
+                style:
+                    TextStyle(color: Colors.blue, fontWeight: FontWeight.bold)),
+            onTap: () {
+              AdaptiveTheme.of(context).toggleThemeMode();
             },
           ),
         ],
