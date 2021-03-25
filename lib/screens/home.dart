@@ -22,17 +22,19 @@ class _HomeScreenState extends State<HomeScreen> {
         drawerEnableOpenDragGesture: !disable,
         drawer: DrawerMenu(),
         body: SafeArea(
-          child: Column(children: [
-            Container(
-              width: 500,
-              height: 300,
-              child: Landing(),
-            ),
-            Container(
-              height: 300,
-              child: SearchBar(),
-            ),
-          ]),
+          child: SingleChildScrollView(
+            child: Column(children: [
+              Container(
+                width: 500,
+                height: 300,
+                child: Landing(),
+              ),
+              Container(
+                height: 400,
+                child: SearchBar(),
+              ),
+            ]),
+          ),
         ));
   }
 }
