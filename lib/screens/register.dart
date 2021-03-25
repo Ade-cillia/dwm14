@@ -49,7 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'Name', hintText: 'Enter your name'),
+                          labelText: 'Nom', hintText: 'Entrez votre nom'),
                     ),
                     TextFormField(
                       onSaved: (value) {
@@ -64,8 +64,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'Firstname',
-                          hintText: 'Enter your Firstname'),
+                          labelText: 'Nom de famille',
+                          hintText: 'Entrez votre nom de famille'),
                     ),
                     TextFormField(
                       onSaved: (value) {
@@ -80,7 +80,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'City', hintText: 'Enter your city'),
+                          labelText: 'Ville', hintText: 'Entrez votre ville'),
                     ),
                     TextFormField(
                       onSaved: (value) {
@@ -94,12 +94,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         } else if (!RegExp(
                                 r"^[a-zA-Z0-9-.]+@[a-zA-Z0-9]+\.[a-z]+$")
                             .hasMatch(value)) {
-                          return "Invalid Email";
+                          return "Email invalide";
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'Email', hintText: 'Enter your email'),
+                          labelText: 'Email', hintText: 'Entrez votre email'),
                     ),
                     TextFormField(
                       obscureText: true,
@@ -110,13 +110,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         if (value.isEmpty) {
                           return 'Empty';
                         } else if (value.length < 8) {
-                          return 'Passwort too short';
+                          return 'Mot de passe trop court';
                         }
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'Password',
-                          hintText: 'Enter your password'),
+                          labelText: 'Mot de passe',
+                          hintText: 'Entrez votre mot de passe'),
                     ),
                     SizedBox(height: 10),
                     Text(errorValidation),
@@ -151,11 +151,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           } on FirebaseAuthException catch (error) {
                             if (error.code == 'weak-password') {
                               setState(() {
-                                errorValidation = 'Password too weak';
+                                errorValidation = 'Mot de passe trop faible';
                               });
                             } else if (error.code == 'email-already-in-use') {
                               setState(() {
-                                errorValidation = 'Email already used';
+                                errorValidation = 'Email déjà utilisé';
                               });
                             }
                           } catch (error) {
@@ -163,7 +163,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           }
                         }
                       },
-                      child: Text('Submit'),
+                      child: Text('S\'inscrire'),
                     )
                   ],
                 ),
