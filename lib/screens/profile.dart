@@ -7,6 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 User user = FirebaseAuth.instance.currentUser;
 
+var test = getUserInfo(user.email);
+
 class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -25,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
                 drawer: DrawerMenu(),
                 body: SafeArea(
                     child: Container(
-                  child: Text('test'),
+                  child: Text(test.name),
                 )));
           }
 
