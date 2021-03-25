@@ -10,6 +10,8 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String name = '';
+  String firstname = '';
+  String city = '';
   String email = '';
   String password = '';
   String errorValidation = '';
@@ -48,6 +50,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       decoration: InputDecoration(
                           labelText: 'Name', hintText: 'Enter your name'),
+                    ),
+                    TextFormField(
+                      onSaved: (value) {
+                        setState(() {
+                          firstname = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Empty';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          labelText: 'Firstname',
+                          hintText: 'Enter your Firstname'),
+                    ),
+                    TextFormField(
+                      onSaved: (value) {
+                        setState(() {
+                          city = value;
+                        });
+                      },
+                      validator: (value) {
+                        if (value.isEmpty) {
+                          return 'Empty';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                          labelText: 'City', hintText: 'Enter your city'),
                     ),
                     TextFormField(
                       onSaved: (value) {
@@ -102,6 +135,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               docReference.add({
                                 'name': name,
                                 'email': userCredential.user.email,
+                                'firstname': firstname,
+                                'city': city
                               }).catchError((error) {
                                 setState(() {
                                   errorValidation =
@@ -109,7 +144,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 });
                               });
                             }
-                            print('Succeed to register');
+                            await firebaseAuth.signInWithEmailAndPassword(
+                                email: email, password: password);
+                            print('Inscription terminée');
+                            Navigator.pushReplacementNamed(context, '/home');
                           } on FirebaseAuthException catch (error) {
                             if (error.code == 'weak-password') {
                               setState(() {

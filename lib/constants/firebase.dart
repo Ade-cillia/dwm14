@@ -30,3 +30,11 @@ getMoviesByTitle(title) async {
   }
   return result;
 }
+
+getUserInfo(email) async {
+  final userInfo = await firestore
+      .collection('users')
+      .where('email', isEqualTo: email)
+      .get();
+  return userInfo;
+}
