@@ -9,7 +9,7 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  String categorySelected = "";
+  String categorySelected = "aucune";
   int nb = 0;
   Color color = Colors.blue;
   bool disable = false;
@@ -18,7 +18,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Flutter'),
+          title: Text('Categorie: ' + categorySelected),
         ),
         drawerEnableOpenDragGesture: !disable,
         drawer: DrawerMenu(),
