@@ -15,15 +15,13 @@ class DrawerMenu extends StatelessWidget {
             },
           ),
           ListTile(
-              title: Text('Categorie'),
+            title: Text('Categorie'),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/category');
             },
           ),
-          ),
           ListTile(
             title: Text('Profil'),
-            
             onTap: () {
               Navigator.pushReplacementNamed(context, '/profile');
             },

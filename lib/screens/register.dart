@@ -49,7 +49,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'Nom', hintText: 'Entrez votre nom'),
+                          labelText: 'Nom',
+                          hintText: 'Entrez votre nom de famille'),
                     ),
                     TextFormField(
                       onSaved: (value) {
@@ -64,8 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         return null;
                       },
                       decoration: InputDecoration(
-                          labelText: 'Nom de famille',
-                          hintText: 'Entrez votre nom de famille'),
+                          labelText: 'Prénom', hintText: 'Entrez votre prénom'),
                     ),
                     TextFormField(
                       onSaved: (value) {

@@ -110,15 +110,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     children: [
                       Text(
-                        'Pas de compte ? ',
+                        'Pas de compte ? s\'enregistrer',
                         style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                      Text(
-                        's\'enregistrer',
-                        style: TextStyle(
-                          color: Colors.green,
+                          color: Colors.red,
                         ),
                       ),
                     ],
