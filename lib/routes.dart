@@ -1,3 +1,4 @@
+import 'package:dwm14/screens/category.dart';
 import 'package:dwm14/screens/detail.dart';
 import 'package:dwm14/screens/login.dart';
 import 'package:dwm14/screens/register.dart';
@@ -9,6 +10,7 @@ final Map<String, WidgetBuilder> routes = {
   '/home': (context) => HomeScreen(),
   '/detail': (context) => DetailScreen(),
   '/profile': (context) => ProfileScreen(),
+  '/category': (context) => CategoryScreen(),
   '/register': (context) => RegisterScreen(),
   '/login': (context) => LoginScreen(),
 };
