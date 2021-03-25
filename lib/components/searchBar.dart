@@ -15,7 +15,6 @@ class _SearchBarState extends State<SearchBar> {
   TextEditingController _textController = TextEditingController();
   static List moviesTitle = [];
   List newDataList = List.from(moviesTitle);
-
   getMovieTitle(moviesData) {
     moviesTitle = [];
     for (var i = 0; i < moviesData.length; i++) {
